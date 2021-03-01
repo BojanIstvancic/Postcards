@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html async>
+  <head>
+    <title>Postcards</title> <!--Please Add Template Name Here -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="template-built-by" content="OS-Bojan"/>
+    <meta name="scope" content="DTB-2859"/>
+    <meta name="build" content="DTB-2996"/>
+    <meta name="updates" content="DTB-888, DTB-0000"/>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/css/main.min.css"/>
+    <!--Please Link Your Fonts Here-->
+
+    <style>
+      /*Please Add Your Template Styling Here*/
+      @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@600&display=swap');
+
+      /* Input order 
+
+      {{trim-marks}}
+      {{ANU_page-theme--psc}}
+      {{ANU_feature-image--psc}}
+      {{ANU_back-page-layout--psc}}
+      {{ANU_back-page-heading--psc}}
+      {{ANU_back-page-heading-font-size--psc}}
+      {{ANU_body-copy--psc}}
+      {{ANU_body-copy-size--psc}}
+      {{ANU_disclaimer--psc}}
+      {{ANU_contact-details--psc}}
+      {{ANU_facebook-url--psc}}
+      {{ANU_linkedin-url--psc}}
+      {{ANU_instagram-url--psc}}
+      {{ANU_twitter-url--psc}}
+      {{ANU_college-name--psc}}
+      */
+
+      :root {
+        --white: {{{account.colors.anu-white}}};
+        --black: {{{account.colors.anu-black}}};
+        --gold: {{{account.colors.anu-gold}}};
+        --94-black: {{{account.colors.anu-94-black}}};
+      }
+
+      .pageTheme--light {
+        --dynamic-background-color: var(--white);
+      }
+
+      .pageTheme--dark {
+        --dynamic-background-color: var(--black);
+      }
+
+      html {
+        font-family: 'Public Sans', sans-serif;
+        color: var(--94-black);
+        word-break: break-word !important;
+      }
+
+      p { font-weight: 300; }
+      p strong { font-weight: 600; }
+
+      .pageTheme--dark { color:var(--white); }
+
+      .container {
+        display: flex;    
+        padding: 2.25rem 1.4rem 1.45rem;
+        background-color: var(--dynamic-background-color);
+      }
+
+      .backPageLayout--copy-on-the-right .container { 
+        flex-direction: row-reverse; 
+        padding:1.35rem 1.3rem 1.35rem 2.49rem;
+      }
+
+      .featureImage {
+        position: absolute;
+        top: 0; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 4.6rem;
+        border-left: 0.5pt solid var(--gold);
+      }
+      
+      .backPageLayout--copy-on-the-left .line { left: 13.7rem; }
+
+      .logo__container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 4.6rem;
+        width: 12.47rem;
+        border-left: 0.5pt solid var(--gold);
+        pointer-events: none;
+      }
+      
+      .backPageLayout--copy-on-the-left .logo__container {
+        left: 13.7rem;
+      }
+
+      .logo__container--backPage {
+        left: 13.7rem;
+        width: 4.99rem;
+      }
+
+      .backPageLayout--copy-on-the-right .logo__container--backPage { left: 1.4rem; }
+
+      .logo__background {
+        position: absolute;
+        top: 5.95rem;
+        left: -1.15rem;
+        padding: 0.5rem 0;
+        background-color: var(--dynamic-background-color);
+        z-index: 5;
+      } 
+
+      .logo__background--backPage {
+        top: 2.25rem;
+        left: -0.55rem;
+        padding: 0.2rem 0;
+      }
+
+      .backPageLayout--copy-on-the-right .logo__background--backPage { top: 1.75rem; }
+
+      .logo {
+        position: relative;
+        display: none;
+        object-fit: contain;
+        object-position: center;
+        width: 7.8rem;
+      }
+
+      .logo--backPage { width: 3.7rem; }
+
+      .pageTheme--dark .logo--primaryLight,
+      .pageTheme--light .logo--primaryDark {
+        display: block;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 0%;
+      }
+
+      .backPageLayout--copy-on-the-left .content { flex: unset; width: 11.8rem; }  
+
+      .heading {   
+        margin-bottom: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .heading h1 {
+        font-size: 1em;
+        color: var(--gold);
+      }
+
+      .copy__container {
+        display: flex;
+        align-items: flex-end;
+        flex: 1;
+      }
+
+      .copy {
+        font-size: 0.4rem;
+        font-weight: 300;
+      }
+
+      .bodyCopySize--text-normal .copy {
+        font-size: 0.45rem;
+      }
+
+      .copy p {
+        margin-bottom: 1em;
+        font-size: 1em;
+        line-height: 1.5em;
+      }
+
+      .bodyCopySize--text-normal .copy p {  line-height: 1.45em; }
+      .copy strong { font-weight: 600; }
+
+      .copy ul { margin-left: 1.6em;  margin-bottom: 1em; }
+
+      .copy p:last-child,
+      .copy ul:last-child {
+        margin-bottom: 0;
+      }
+
+      .copy li {
+        position: relative;
+        font-size: 1em;
+        line-height: 1.5em;
+      }
+
+      .copy li + li { margin-top: 0.3em; }
+
+      .copy li:before {
+        content: "\2014";
+        position: absolute;
+        top: 0;
+        left: -1.62em;
+      }
+
+      .disclaimer {      
+        margin-top: 1.2rem;
+        font-size: 0.32rem;
+      }
+
+      .backPageLayout--copy-on-the-right .disclaimer { margin-top: 0.7rem; }
+
+      .side { 
+        margin-left: 1.55rem;
+        width: 5.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-shrink: 0;
+      }
+
+      .backPageLayout--copy-on-the-right .side {
+        margin-left: 0;
+        margin-right: 0.5rem;
+        width: 4.75rem;
+      }
+
+      .contact {        
+        font-size: 0.4rem;
+        line-height: 1.3em;
+      }
+
+      .social {
+        display: flex;      
+        margin-top: 0.1rem;
+      }
+
+      .social:first-child { margin-top: 0.6rem; }
+
+      .social__icon {
+        display: none;
+        margin-right: 0.1rem;
+        width: 0.35rem;
+      }
+
+      .pageTheme--light .social__icon--dark,
+      .pageTheme--dark .social__icon--light { display: block; }
+
+      .social__text {
+        flex: 1;
+        font-size: 0.4rem;
+        font-weight: normal;
+      }
+
+      .collegeName {
+        margin-top: 1.35rem;
+        font-size: 0.4rem;
+        font-weight: 300;
+        line-height: 1.3em;
+      }
+
+      .cricos {
+        position: absolute;
+        font-size: 0.3rem;
+        line-height: 2;
+        width: 4.85rem;
+        font-weight: 500;
+        bottom: 9.1%;
+        left: 5%;
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+      }
+
+    </style>
+  </head>
+  <body data-trim="{{trim-marks}}{{^trim-marks}}true{{/trim-marks}}"
+        data-renderer="2" data-reduce-export-font-size-by-percent="1"
+        data-reduce-firefox-font-size-by-percent="0"
+        data-development="true"
+        class="pageTheme--{{ANU_page-theme--psc}}{{^ANU_page-theme--psc}}light{{/ANU_page-theme--psc}}
+               backPageLayout--{{ANU_back-page-layout--psc}}{{^ANU_back-page-layout--psc}}copy-on-the-left{{/ANU_back-page-layout--psc}}"> <!--NEED TO REMOVE / AUDIT THESE DATA ATTRIBUTES HERE-->
+    <div class="page">
+      <div class="bleed">
+        <div class="container">
+          {{#ANU_feature-image--psc}}
+          <div class="featureImage">
+            <div class="reposition-fix">{{{ANU_feature-image--psc}}}</div><!-- reposition-fix -->
+            <div class="line"></div><!-- line --> 
+          </div><!-- featureImage -->
+          {{/ANU_feature-image--psc}}
+          {{^ANU_feature-image--psc}}
+          <div class="logo__container">
+            <div class="logo__background">
+              <img class="logo logo--primaryLight" src="{{{account.logos.Secondary-logo-gold-white}}}"><!--logo--primaryLight-->
+              <img class="logo logo--primaryDark" src="{{{account.logos.Secondary-logo-gold}}}"><!--logo--primaryDark-->
+              <img class="logo logo--secondaryLight" src="{{{account.logos.Logo-gold-white}}}"><!--logo--secondaryLight-->
+              <img class="logo logo--secondaryDark" src="{{{account.logos.Logo}}}"><!--logo--secondaryDark-->
+            </div> <!--logo__background-->
+          </div> <!--logo__container-->
+          {{/ANU_feature-image--psc}}
+        </div><!-- container -->
+      </div>
+    </div><!-- page -->
+    <div class="page 
+                
+                bodyCopySize--{{ANU_body-copy-size--psc}}{{^ANU_body-copy-size--psc}}text-small{{/ANU_body-copy-size--psc}}">
+      <div class="bleed">
+        <div class="container">
+          <div class="content">
+            {{#ANU_back-page-heading--psc}}
+            <div class="heading">
+              <div class="heading__inner" 
+                   style="font-size: calc(100% + {{ANU_back-page-heading-font-size--psc}}{{^ANU_back-page-heading-font-size--psc}}0{{/ANU_back-page-heading-font-size--psc}}%)"
+                   data-max-line="4">
+                {{{ANU_back-page-heading--psc}}}
+              </div><!-- heading__inner -->
+            </div><!-- heading -->
+            {{/ANU_back-page-heading--psc}}
+            <div class="copy__container">
+              {{#ANU_body-copy--psc}}
+              <div class="copy" data-max-height="dynamic">{{{ANU_body-copy--psc}}}</div><!-- copy -->
+              {{/ANU_body-copy--psc}}
+            </div><!-- copy__container -->
+            {{#ANU_disclaimer--psc}}
+            <div class="disclaimer" data-max-line="2">{{{ANU_disclaimer--psc}}}</div><!-- disclaimer -->
+            {{/ANU_disclaimer--psc}}
+          </div><!-- content -->
+          <div class="side">
+            {{#ANU_contact-details--psc}}
+            <div class="contact" data-max-line="6">{{{ANU_contact-details--psc}}}</div><!-- contact --->
+            {{/ANU_contact-details--psc}}
+            <div class="social__container">
+              {{#ANU_facebook-url--psc}}
+              <div class="social social--facebook">
+                <img class="social__icon social__icon--dark" src="https://files.outfit.io/media_library_items/260224/Facebook-icon.svg"><!--social__icon--darkFacebook-->
+                <img class="social__icon social__icon--light" src="https://files.outfit.io/media_library_items/260229/Facebook-white.svg"><!--social__icon--lightFacebook-->
+                <div class="social__text social__text--facebook" data-max-line="1">{{{ANU_facebook-url--psc}}}</div><!--social__text facebook-->
+              </div><!--social--facebook-->
+              {{/ANU_facebook-url--psc}}
+              {{#ANU_linkedin-url--psc}}
+              <div class="social social--linkedin">
+                <img class="social__icon social__icon--dark" src="https://files.outfit.io/media_library_items/260225/LinkedIn-icon.svg"><!--social__icon--darkLinkedin-->
+                <img class="social__icon social__icon--light" src="https://files.outfit.io/media_library_items/260227/LinkedIn-white.svg"><!--social__icon--lightLinkedin-->
+                <div class="social__text social__text--linkedin" data-max-line="1">{{{ANU_linkedin-url--psc}}}</div><!--social__text linkedin-->
+              </div><!--social--linkedin-->
+              {{/ANU_linkedin-url--psc}}
+              {{#ANU_instagram-url--psc}}
+              <div class="social social--instagram">
+                <img class="social__icon social__icon--dark" src="https://files.outfit.io/media_library_items/260223/Instagram-icon.svg"><!--social__icon--darkInstagram-->
+                <img class="social__icon social__icon--light" src="https://files.outfit.io/media_library_items/260228/Instagram-white.svg"><!--social__icon--lightInstagram-->
+                <div class="social__text social__text--instagram" data-max-line="1">{{{ANU_instagram-url--psc}}}</div><!--social__text instagram-->
+              </div><!--social--instagram-->
+              {{/ANU_instagram-url--psc}}
+              {{#ANU_twitter-url--psc}}
+              <div class="social social--twitter">
+                <img class="social__icon social__icon--dark" src="https://files.outfit.io/media_library_items/260226/Twitter-icon.svg"><!--social__icon--darkTwitter-->
+                <img class="social__icon social__icon--light" src="https://files.outfit.io/media_library_items/260230/Twitter-white.svg"><!--social__icon--lightTwitter-->
+                <div class="social__text social__text--twitter" data-max-line="1">{{{ANU_twitter-url--psc}}}</div><!--social__text twitter-->
+              </div><!--social--twitter-->
+              {{/ANU_twitter-url--psc}}
+            </div><!--social__container-->
+            {{#ANU_college-name--psc}}
+            <div class="collegeName" data-max-line="4">{{{ANU_college-name--psc}}}</div><!-- collegeName -->
+            {{/ANU_college-name--psc}}
+          </div><!-- side -->
+          <div class="logo__container logo__container--backPage">
+            <div class="logo__background logo__background--backPage">
+              <img class="logo logo--primaryLight logo--backPage" src="{{{account.logos.Secondary-logo-gold-white}}}"><!--logo--primaryLight-->
+              <img class="logo logo--primaryDark logo--backPage" src="{{{account.logos.Secondary-logo-gold}}}"><!--logo--primaryDark-->
+              <img class="logo logo--secondaryLight logo--backPage" src="{{{account.logos.Logo-gold-white}}}"><!--logo--secondaryLight-->
+              <img class="logo logo--secondaryDark logo--backPage" src="{{{account.logos.Logo}}}"><!--logo--secondaryDark-->
+            </div> <!--logo__background-->
+          </div> <!--logo__container-->
+          <div class="cricos">{{{account.snippets.cricosCode}}}</div><!-- cricos -->
+        </div><!-- container -->
+      </div>
+    </div><!-- page -->
+
+    <script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/fontfaceobserver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/limiters.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/all-images-loaded-callback.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/prefixfree.min.js"></script>
+
+    <!--<script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/formatters.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/custom-rich-text.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/hide-empty-titles.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/qrcode.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/textfit.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/gh/OutfitDelivery/boilerplate@2.2.1/js/validate.min.js"></script>-->
+
+
+    <!--Dynamic Columns & Pages -->
+    <!--<script src="js/dynamic-inject.js"></script>--> <!--You will need a Mutation Observer for this one if you want to use it--><!--Need to write-->
+
+    <script>
+      console.clear();
+
+      window.addEventListener('load', function(event) {
+        const fonts = ["Public Sans"]; //List your document fonts here
+        if(!validFontList(fonts)) return;
+
+        const fontObservers = [];
+
+        fonts.forEach(font => {
+          const obs = new FontFaceObserver(font);
+          fontObservers.push(obs.load())
+        });
+        Promise.all(fontObservers).then(() => {
+          /*Functions To Run After Load*/
+          setOutfitState();
+
+          //hideEmptyTitles();
+          checkCrop();
+          //checkExport();
+          charLimit();
+          observerAndLoad();
+
+          if(getOutfitState() == "document"){
+            imageCompression();
+          }
+
+          if(getOutfitState() == "template" || getOutfitState() == "document"){
+            setupMutationObserver(document.body, {characterData: true, childList: true, subtree: true, characterDataOldValue: true}, observerAndLoad);
+          }
+
+          console.info("Document is Print Ready");
+          setTimeout(function() {	document.dispatchEvent(new Event('printready'));	}, 5000);
+        }, function () {
+          console.error("Font is not available");
+        });
+      });
+
+      function observerAndLoad(){
+        if(getOutfitState() != "preview"){
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        }
+
+        //hideEmptyTitles();
+
+      }
+    </script>
+  </body>
+</html>
